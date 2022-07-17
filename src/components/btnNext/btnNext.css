@@ -9,10 +9,6 @@
   transition: 0.2s all;
 }
 
-.b:hover {
-  background-color: whitesmoke;
-}
-
 .b:active {
     transform: scale(0.98);
 }
@@ -32,4 +28,11 @@
 
 .b-btn:hover {
   border-color: black;
+}
+
+.b-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
