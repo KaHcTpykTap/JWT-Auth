@@ -6,6 +6,7 @@ import { IUser } from "./models/IUser";
 import UserService from "./services/UserService";
 import './app.css'
 import Carousel from "./components/carousel/Carousel";
+import BtnNext from "./components/btnNext/BtnNext";
 
 const App: FC = () => {
   const { store } = useContext(Context);
@@ -34,7 +35,8 @@ const App: FC = () => {
     return (
       <div className="app">
         {/* <LoginForm /> */}
-        <Carousel/>
+        {/* <Carousel/> */}
+        <BtnNext/>
       </div>
     );
   }
