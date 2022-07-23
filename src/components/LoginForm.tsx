@@ -1,14 +1,17 @@
 import { observer } from "mobx-react-lite";
 import React, { FC, useContext, useState } from "react";
 import { Context } from "../index";
+import { LoginFormContainer } from "./LoginFormStyles";
 
 const LoginForm: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { store } = useContext(Context);
 
+  const [statelogin, setStateLogin] = useState(true);
+
   return (
-    <div>
+    <LoginFormContainer>
       <input
         onChange={(e) => setEmail(e.target.value)}
         value={email}
@@ -21,11 +24,34 @@ const LoginForm: FC = () => {
         type="password"
         placeholder="Password"
       />
-      <button onClick={() => store.login(email, password)}>Login</button>
-      <button onClick={() => store.registration(email, password)}>
-        Registration
-      </button>
-    </div>
+      <div className="lf-buttons">
+        {statelogin ? (
+          <>
+            <button
+              className="lf-button"
+              onClick={() => store.login(email, password)}
+            >
+              Login
+            </button>
+            <div className="lf-header" onClick={() => setStateLogin(false)}>
+              Register
+            </div>
+          </>
+        ) : (
+          <>
+            <button
+              className="lf-button"
+              onClick={() => store.registration(email, password)}
+            >
+              Registration
+            </button>
+            <div className="lf-header" onClick={() => setStateLogin(true)}>
+              Login
+            </div>
+          </>
+        )}
+      </div>
+    </LoginFormContainer>
   );
 };
 

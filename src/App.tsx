@@ -4,9 +4,11 @@ import LoginForm from "./components/LoginForm";
 import { observer } from "mobx-react-lite";
 import { IUser } from "./models/IUser";
 import UserService from "./services/UserService";
-import './app.css'
+import "./app.css";
 import Carousel from "./components/carousel/Carousel";
 import BtnNext from "./components/btnNext/BtnNext";
+import Login from "./components/pages/Login";
+import Purchase from "./components/pages/Purchase";
 
 const App: FC = () => {
   const { store } = useContext(Context);
@@ -34,9 +36,10 @@ const App: FC = () => {
   if (!store.isAuth) {
     return (
       <div className="app">
-        {/* <LoginForm /> */}
-        {/* <Carousel/> */}
-        <BtnNext/>
+        <LoginForm />
+        {/*         <Carousel/>
+        <Login/>
+        <Purchase/> */}
       </div>
     );
   }
@@ -60,7 +63,9 @@ const App: FC = () => {
         Logout
       </button>
       <div>
-        <button disabled={!store.user.isActivated} onClick={() => getUsers()}>Get users</button>
+        <button disabled={!store.user.isActivated} onClick={() => getUsers()}>
+          Get users
+        </button>
       </div>
       {users.map((user) => (
         <div key={user.email}>{user.email}</div>
