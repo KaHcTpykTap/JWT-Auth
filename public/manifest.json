@@ -21,11 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "permissions": [
-    "http://sensationnel-chaise-20290.herokuapp.com/*",
-    "https://sensationnel-chaise-20290.herokuapp.com/",
-    "http://moskalyovvictor.host/*",
-    "https://moskalyovvictor.host/*"
- ]
+  "background_color": "#ffffff"
 }

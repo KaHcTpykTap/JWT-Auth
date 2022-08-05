@@ -3,8 +3,6 @@ import { AuthResponse } from "../models/response/AuthResponse";
 
 export const API_URL = "https://sensationnel-chaise-20290.herokuapp.com/api";
 
-/* export const API_URL = "http://localhost:3000/"; */
-
 const $api = axios.create({
   /* cookies auto set to axios */
   withCredentials: true,
@@ -23,10 +21,6 @@ $api.interceptors.response.use(
     return config;
   },
   async (error) => {
-    console.log("Type of");
-    
-    console.log(typeof error);
-    
     const originalRequest = error.config;
     console.log(error.config);
     

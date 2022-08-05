@@ -5,10 +5,8 @@ import { observer } from "mobx-react-lite";
 import { IUser } from "./models/IUser";
 import UserService from "./services/UserService";
 import "./app.css";
-import Carousel from "./components/carousel/Carousel";
-import BtnNext from "./components/btnNext/BtnNext";
-import Login from "./components/pages/Login";
-import Purchase from "./components/pages/Purchase";
+
+
 
 const App: FC = () => {
   const { store } = useContext(Context);
@@ -37,9 +35,6 @@ const App: FC = () => {
     return (
       <div className="app">
         <LoginForm />
-        {/*         <Carousel/>
-        <Login/>
-        <Purchase/> */}
       </div>
     );
   }
@@ -47,13 +42,15 @@ const App: FC = () => {
   return (
     <div>
       <h1>
-        {store.isAuth ? `User is authorized ${store.user.email}` : "Log in"}
+        {`User is authorized ${store.user.email}`}
       </h1>
+      <div>___________________</div>
       <h1>
         {store.user.isActivated
-          ? `account verified by email ${store.user.email}`
-          : "Verify your account"}
+          ? `Account verified by email ${store.user.email}`
+          : `Verify your account email ${store.user.email}`}
       </h1>
+      <div>___________________</div>
       <button
         onClick={() => {
           store.logout();
@@ -62,6 +59,7 @@ const App: FC = () => {
       >
         Logout
       </button>
+      <div>___________________</div>
       <div>
         <button disabled={!store.user.isActivated} onClick={() => getUsers()}>
           Get users
